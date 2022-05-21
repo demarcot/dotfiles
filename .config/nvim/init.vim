@@ -15,6 +15,9 @@ set tabstop=2
 set nowrap
 set number
 
+set statusline=%F
+set laststatus=2
+
 call plug#begin()
 
 Plug 'gruvbox-community/gruvbox'

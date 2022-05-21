@@ -2,6 +2,8 @@ export PATH=$HOME/Documents/programs/nvim-osx64/bin:$PATH
 export PATH=/usr/local/sbin:${_HOMEBREW_PREFIX}/sbin:$PATH
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export USER=tcd
+
 export ZSH=$HOME/.oh-my-zsh
 
 # Default theme "robbyrussell"
@@ -22,6 +24,17 @@ HIST_STAMPS="%m/%d/%y %T "
 
 plugins=(git)
 
+# START - Function to have kill line copy to clipboard
+pb-kill-line () {
+  zle kill-line   # `kill-line` is the default ctrl+k binding
+  echo -n $CUTBUFFER | pbcopy
+}
+
+zle -N pb-kill-line  # register our new function
+
+bindkey '^K' pb-kill-line  # change the ctrl+k binding to use our new function
+# END
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -38,5 +51,11 @@ fi
 # Custom aliases 
 alias ze='nvim ~/.zshrc'
 alias ll='ls -la'
-alias aws-reset-saml='rm -rf ~/Library/Application Support/gsuite-saml-aws'
 alias gh-create-pr='gh pr create --title $(git branch --show-current)'
+
+# Pull in local file (Useful for not pushing work stuff)
+if [ -f ~/local_alias ]; then
+    source ~/local_alias
+else
+    print "local alias file not found"
+fi
