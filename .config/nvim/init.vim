@@ -34,14 +34,20 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 
+Plug 'ThePrimeagen/harpoon' " TODO(Tom): setup keybinds and play around
+
 Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
 :colorscheme gruvbox
 
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
-lua require('telescope').setup{ defaults = { file_ignore_patterns = { "node_modules", "/.git/" } } }
-lua require('telescope').load_extension "file_browser"
+lua require("tcd")
+" lua <<EOF
+" local actions = require "telescope.actions"
+" require('telescope').setup{ defaults = { file_ignore_patterns = { "node_modules", "/.git/" } }, pickers = { buffers = { mappings = { i = { ["<c-d>"] = actions.delete_buffer + actions.move_to_top, } } } } }
+" require('telescope').load_extension "file_browser"
+" EOF
 
 let loaded_matchparen = 1
 let mapleader = " "
