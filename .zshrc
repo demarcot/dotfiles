@@ -60,5 +60,5 @@ else
     print "local alias file not found"
 fi
 
-preexec() { date +%X%N }
-precmd() { date +%X%N }
+preexec() { date +%X.%N }
+precmd() { date +%X.%N }
