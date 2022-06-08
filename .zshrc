@@ -59,3 +59,6 @@ if [ -f ~/local_alias ]; then
 else
     print "local alias file not found"
 fi
+
+preexec() { date +%X%N }
+precmd() { date +%X%N }
