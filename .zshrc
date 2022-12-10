@@ -1,21 +1,15 @@
+export USER=tcd
+export ZSH=$HOME/.oh-my-zsh
+
+# TODO(Tom): organize os specific path stuff
 export PATH=$HOME/Documents/programs/nvim-osx64/bin:$PATH
 export PATH=/usr/local/sbin:${_HOMEBREW_PREFIX}/sbin:$PATH
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export USER=tcd
-
-export ZSH=$HOME/.oh-my-zsh
-
-# Default theme "robbyrussell"
 ZSH_THEME="gruvbox"
 SOLARIZED_THEME="dark"
 
-HYPHEN_INSENSITIVE="true"
-
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+HYPHEN_INSENSITIVE="true" # TODO(Tom): why do I have this?
 
 COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 
@@ -24,16 +18,16 @@ HIST_STAMPS="%m/%d/%y %T "
 
 plugins=(git)
 
-# START - Function to have kill line copy to clipboard
-pb-kill-line () {
-  zle kill-line   # `kill-line` is the default ctrl+k binding
-  echo -n $CUTBUFFER | pbcopy
-}
+if [[ $OS != Windows* ]]; then
+ pb-kill-line () {
+   zle kill-line
+   echo -n $CUTBUFFER | pbcopy
+ }
 
-zle -N pb-kill-line  # register our new function
+ zle -N pb-kill-line
 
-bindkey '^K' pb-kill-line  # change the ctrl+k binding to use our new function
-# END
+ bindkey '^K' pb-kill-line
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -63,5 +57,6 @@ else
     print "local alias file not found"
 fi
 
+# Show timestamps before and after commands
 preexec() { date +%X.%N }
 precmd() { date +%X.%N }
