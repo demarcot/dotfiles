@@ -49,9 +49,12 @@ else
 fi
 
 # Custom aliases 
+alias e='nvim ~/.config/nvim/init.vim'
 alias ze='nvim ~/.zshrc'
+alias .z='source ~/.zshrc'
 alias ll='ls -la'
 alias gh-create-pr='gh pr create --title $(git branch --show-current)'
+alias cdg='cd "$(git rev-parse --show-toplevel)"'
 
 # Pull in local file (Useful for not pushing work stuff)
 if [ -f ~/local_alias ]; then
