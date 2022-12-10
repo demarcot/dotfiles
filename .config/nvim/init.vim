@@ -64,6 +64,7 @@ nnoremap <leader>ft <cmd>Telescope file_browser<cr>
 nnoremap <leader>sf :Telescope find_files cwd=~ hidden=true<CR>
 
 inoremap <C-c> <esc>
+nnoremap U <C-r>
 
 "nvim config
 nnoremap <leader><CR> :source ~/.config/nvim/init.vim<CR>
