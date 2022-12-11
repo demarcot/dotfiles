@@ -2,7 +2,6 @@ set path+=**
 
 set wildmode=longest,list,full
 set wildmenu
-" Ignore files
 set wildignore+=*.pyc
 set wildignore+=*_build/*
 set wildignore+=**/coverage/*
@@ -41,40 +40,45 @@ call plug#end()
 
 :colorscheme gruvbox
 
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 lua require("tcd")
-" lua <<EOF
-" local actions = require "telescope.actions"
-" require('telescope').setup{ defaults = { file_ignore_patterns = { "node_modules", "/.git/" } }, pickers = { buffers = { mappings = { i = { ["<c-d>"] = actions.delete_buffer + actions.move_to_top, } } } } }
-" require('telescope').load_extension "file_browser"
-" EOF
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 
 let loaded_matchparen = 1
+
+" Leader
 let mapleader = " "
 
-"Navigate buffers
-nnoremap <leader>bn :bnext<CR>
-nnoremap <leader>bp :bprevious<CR>
-
-nnoremap <leader>ff <cmd>Telescope find_files hidden=true<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>ft <cmd>Telescope file_browser<cr>
-
-nnoremap <leader>sf :Telescope find_files cwd=~ hidden=true<CR>
-
+" Biggest remaps
 inoremap <C-c> <esc>
 nnoremap U <C-r>
 
-"nvim config
+" Config edits
 nnoremap <leader><CR> :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>e<CR> :edit ~/.config/nvim/init.vim<CR>
 nnoremap <leader>ze<cr> :edit ~/.zshrc<cr>
 
+" File nav
+nnoremap <leader>ff <cmd>Telescope find_files hidden=true<cr>
+nnoremap <leader>f :e .
+nnoremap <leader>sf :Vex<cr>
+
+" Window/Buffer nav
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>nb :bnext<CR>
+nnoremap <leader>pb :bprevious<CR>
+nnoremap <leader>nw <C-W>l
+nnoremap <leader>pw <C-W>h
+nnoremap <leader>ww :only<cr>
+
+" TODO(Tom): might want to revisit
+" COC stuff
 nmap <leader>rn <Plug>(coc-rename)
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <leader>g<cr> :call CocActionAsync('jumpDefinition')<cr>
 nnoremap K :call <sid>show_documentation()<cr>
+
+" <c-space> to trigger completion
+inoremap <silent><expr> <C-space> coc#refresh()
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
@@ -98,5 +102,3 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 
-" <c-space> to trigger completion
-inoremap <silent><expr> <C-space> coc#refresh()
