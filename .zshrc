@@ -2,7 +2,7 @@ export USER=tcd
 export ZSH=$HOME/.oh-my-zsh
 
 # TODO(Tom): organize os specific path stuff
-export PATH=$HOME/Documents/programs/nvim-osx64/bin:$PATH
+export PATH=$HOME/Documents/programs/nvim-macos/bin:$PATH
 export PATH=/usr/local/sbin:${_HOMEBREW_PREFIX}/sbin:$PATH
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 

@@ -53,6 +53,10 @@ let mapleader = " "
 inoremap <C-c> <esc>
 nnoremap U <C-r>
 
+" Editor nav
+nnoremap <C-n> <C-d>zz
+nnoremap <C-p> <C-u>zz
+
 " Config edits
 nnoremap <leader><CR> :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>e<CR> :edit ~/.config/nvim/init.vim<CR>
