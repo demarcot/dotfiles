@@ -12,7 +12,7 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 set nowrap
-set number
+set relativenumber 
 
 set statusline=%F
 set laststatus=2
@@ -34,6 +34,7 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 Plug 'ThePrimeagen/harpoon' " TODO(Tom): setup keybinds and play around
+Plug 'ThePrimeagen/vim-be-good'
 
 Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
@@ -90,6 +91,11 @@ function! s:show_documentation()
   endif
 endfunction
 
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
 " tab for completion
 inoremap <silent><expr> <tab>
   \ pumvisible() ? "\<C-n>" :
@@ -97,8 +103,4 @@ inoremap <silent><expr> <tab>
   \ coc#refresh()
 inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~# '\s'
-endfunction
 
