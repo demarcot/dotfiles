@@ -1,3 +1,7 @@
-local actions = require "telescope.actions"
-require('telescope').setup{ defaults = { file_ignore_patterns = { "node_modules", "/.git/" } }, pickers = { buffers = { mappings = { i = { ["<c-d>"] = actions.delete_buffer + actions.move_to_top, } } } } }
-require('telescope').load_extension "file_browser"
+require("tcd.set")
+require("tcd.remap")
+require('tcd.packer')
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
