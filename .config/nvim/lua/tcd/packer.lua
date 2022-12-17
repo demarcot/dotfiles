@@ -15,7 +15,7 @@ return require('packer').startup(function(use)
      'gruvbox-community/gruvbox',
      as = 'gruvbox',
      config = function()
-         vim.cmd('colorscheme gruvbox')
+         vim.cmd.colorscheme('gruvbox')
      end
  })
 
