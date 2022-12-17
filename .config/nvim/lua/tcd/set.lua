@@ -12,7 +12,7 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-if os.getenv("OS"):find("Windows") ~= nil then
+if os.getenv("OS") ~= nil and os.getenv("OS"):find("Windows") ~= nil then
   vim.opt.undodir = os.getenv("HOME") .. "\\.vim\\undodir"
 else
   vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
