@@ -13,7 +13,7 @@ vim.keymap.set("n", "<leader>ze<cr>", ":edit ~/.zshrc<cr>")
 -- File Nav
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>")
 vim.keymap.set("n", "<leader>f", ":Ex<cr>")
-vim.keymap.set("n", "<leader>sf", ":Vex<cr>")
+vim.keymap.set("n", "<leader>sf", ":Lex<cr>")
 
 
 -- Window/Buffer Nav
