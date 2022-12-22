@@ -13,7 +13,7 @@ vim.keymap.set("n", "<leader>ze<cr>", ":edit ~/.zshrc<cr>")
 -- File Nav
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>")
 vim.keymap.set("n", "<leader>f", ":Ex<cr>")
-vim.keymap.set("n", "<leader>sf", ":Lex<cr>")
+vim.keymap.set("n", "<leader>sf", ":Vex<cr>")
 
 
 -- Window/Buffer Nav
@@ -30,4 +30,8 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+local function reloadPacker ()
+    pcall(require, 'tcd.packer')
+end
+
+vim.keymap.set("n", "<leader>pr", reloadPacker)

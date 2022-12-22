@@ -1,16 +1,11 @@
 require("tcd.set")
 require("tcd.remap")
-require('tcd.packer')
 
 local augroup = vim.api.nvim_create_augroup
 local TcdGroup = augroup('tcd', {})
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
-
-function R(name)
-    require("plenary.reload").reload_module(name)
-end
 
 autocmd('TextYankPost', {
     group = yank_group,
