@@ -7,7 +7,7 @@ vim.keymap.set("n", "<C-p>", "<C-u>zz")
 
 -- Config Edits
 vim.keymap.set("n", "<leader><cr>", ":source ~/.config/nvim/init.lua<cr>")
-vim.keymap.set("n", "<leader>e<cr>", ":edit ~/.config/nvim/init.lua<cr>")
+vim.keymap.set("n", "<leader>ne<cr>", ":edit ~/.config/nvim/init.lua<cr>")
 vim.keymap.set("n", "<leader>ze<cr>", ":edit ~/.zshrc<cr>")
 
 -- File Nav
