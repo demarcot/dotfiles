@@ -22,7 +22,7 @@ vim.keymap.set("n", "<leader>nb", ":bnext<cr>")
 vim.keymap.set("n", "<leader>pb", ":bprevious<cr>")
 vim.keymap.set("n", "<leader>nw", "<C-W>l")
 vim.keymap.set("n", "<leader>pw", "<C-W>h")
-vim.keymap.set("n", "<leader>ww", ":only<cr>")
+vim.keymap.set("n", "<s-w><s-w>", ":only<cr>")
 
 
 vim.keymap.set("n", "Q", "<nop>")
