@@ -6,3 +6,5 @@ Link repo to default locations
 
 This Neovim config uses Packer, install it from [here](https://github.com/wbthomason/packer.nvim)
 Then run `:PackerSync`
+
+For Telescope, prob want to install [rg](https://github.com/BurntSushi/ripgrep#installation)
