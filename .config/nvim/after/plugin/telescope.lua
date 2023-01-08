@@ -23,4 +23,4 @@ require('telescope').load_extension "file_browser"
 
 local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<leader>fg', builtin.live_grep)
+vim.keymap.set('n', '<leader>gg', builtin.live_grep)
